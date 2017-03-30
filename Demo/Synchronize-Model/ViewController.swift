@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     @IBOutlet fileprivate weak var tableView: UITableView!
     
-    var someModels = [SomeModel]() {
+    var models = [Model]() {
         didSet {
             tableView?.reloadData()
         }
@@ -27,17 +27,17 @@ class ViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(UINib(nibName: kCellIdentifier, bundle: nil), forCellReuseIdentifier: kCellIdentifier)
         
-        var sampleModels = [SomeModel]()
+        var sampleModels = [Model]()
         for i in 0..<3 {
-            sampleModels.append(SomeModel(id: i, isFavorite: i % 2 == 0))
+            sampleModels.append(Model(id: i, isFavorite: i % 2 == 0))
         }
-        someModels = sampleModels
+        models = sampleModels
         
-        NotificationCenter.default.addObserver(self, selector: #selector(onModelChanged(_:)), name: .changedModel, object: nil)
+        addDidChangeModelObserver()
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self, name: .changedModel, object: nil)
+        removeDidChangeModelObserver()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -48,31 +48,26 @@ class ViewController: UIViewController {
         case kSegueIdentifier:
             guard
                 let vc = segue.destination as? DetailViewController,
-                let someModel = sender as? SomeModel else {
+                let model = sender as? Model else {
                     return
             }
-            vc.someModel = someModel
+            vc.model = model
         default:
             break
         }
     }
     
-    func onModelChanged(_ notification: NSNotification) {
-        guard
-            let userInfo = notification.userInfo,
-            let someModel = userInfo[NotificationInfoKey.model.rawValue] as? SomeModel,
-            let eventType = userInfo[NotificationInfoKey.eventType.rawValue] as? NotificationEventType else {
-                return
-        }
-        switch eventType {
-        case .update:
-            someModels = someModels.map({ $0.id == someModel.id ? someModel : $0 })
-        case .delete:
-            someModels = someModels.filter({ $0.id != someModel.id })
-        }
+    @IBAction func unwind(segue: UIStoryboardSegue) {}
+}
+
+extension ViewController: ModelChangeable {
+    func updateModel(_ model: Model) {
+        models = models.map({ $0.id == model.id ? model : $0 })
     }
     
-    @IBAction func unwind(segue: UIStoryboardSegue) {}
+    func deleteModel(_ model: Model) {
+        models = models.filter({ $0.id != model.id })
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -81,18 +76,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return someModels.count
+        return models.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: kCellIdentifier) as! TableViewCell
-        cell.updateView(with: someModels[indexPath.row])
+        cell.updateView(from: models[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
      
-        performSegue(withIdentifier: kSegueIdentifier,sender: someModels[indexPath.row])
+        performSegue(withIdentifier: kSegueIdentifier,sender: models[indexPath.row])
     }
 }

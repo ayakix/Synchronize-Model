@@ -12,22 +12,22 @@ class DetailViewController: UIViewController {
     @IBOutlet fileprivate weak var titleLabel: UILabel!
     @IBOutlet fileprivate weak var favoriteButton: UIButton!
     
-    var someModel: SomeModel!
+    var model: Model!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        titleLabel.text = "id: \(someModel.id)"
-        favoriteButton.isSelected = someModel.isFavorite
+        titleLabel.text = "id: \(model.id)"
+        favoriteButton.isSelected = model.isFavorite
     }
 
     @IBAction private func onFavoriteButtonClick(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        someModel.isFavorite = sender.isSelected
-        NotificationUtil.notifyModelChange(someModel: someModel, eventType: .update)
+        model.isFavorite = sender.isSelected
+        ModelNotification.update(model: model)
     }
     
     @IBAction private func onDeleteButtonClick(_ sender: UIButton) {
-        NotificationUtil.notifyModelChange(someModel: someModel, eventType: .delete)
+        ModelNotification.delete(model: model)
     }
 }

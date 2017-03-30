@@ -12,12 +12,13 @@
 		A8A3BD111E8BECAA00B603EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8A3BD0F1E8BECAA00B603EE /* Main.storyboard */; };
 		A8A3BD131E8BECAA00B603EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8A3BD121E8BECAA00B603EE /* Assets.xcassets */; };
 		A8A3BD161E8BECAA00B603EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8A3BD141E8BECAA00B603EE /* LaunchScreen.storyboard */; };
-		A8A3BD201E8BED7800B603EE /* SomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A3BD1F1E8BED7800B603EE /* SomeModel.swift */; };
+		A8A3BD201E8BED7800B603EE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A3BD1F1E8BED7800B603EE /* Model.swift */; };
 		A8A3BD231E8BF19A00B603EE /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A3BD211E8BF19A00B603EE /* TableViewCell.swift */; };
 		A8A3BD241E8BF19A00B603EE /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8A3BD221E8BF19A00B603EE /* TableViewCell.xib */; };
 		A8A3BD261E8BFA2700B603EE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A3BD251E8BFA2700B603EE /* DetailViewController.swift */; };
-		A8A3BD281E8BFC1200B603EE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A3BD271E8BFC1200B603EE /* Constants.swift */; };
-		E8E56F041E8C916E00C7728D /* NotificationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E56F031E8C916E00C7728D /* NotificationUtil.swift */; };
+		E8E56F071E8C9BCA00C7728D /* ModelChangeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E56F061E8C9BCA00C7728D /* ModelChangeable.swift */; };
+		E8E56F091E8C9C4000C7728D /* ModelObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E56F081E8C9C4000C7728D /* ModelObserving.swift */; };
+		E8E56F0B1E8C9C5E00C7728D /* ModelNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E56F0A1E8C9C5E00C7728D /* ModelNotification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +29,13 @@
 		A8A3BD121E8BECAA00B603EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8A3BD151E8BECAA00B603EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8A3BD171E8BECAA00B603EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A8A3BD1F1E8BED7800B603EE /* SomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeModel.swift; sourceTree = "<group>"; };
+		A8A3BD1F1E8BED7800B603EE /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		A8A3BD211E8BF19A00B603EE /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		A8A3BD221E8BF19A00B603EE /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		A8A3BD251E8BFA2700B603EE /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		A8A3BD271E8BFC1200B603EE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		E8E56F031E8C916E00C7728D /* NotificationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationUtil.swift; sourceTree = "<group>"; };
+		E8E56F061E8C9BCA00C7728D /* ModelChangeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelChangeable.swift; sourceTree = "<group>"; };
+		E8E56F081E8C9C4000C7728D /* ModelObserving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelObserving.swift; sourceTree = "<group>"; };
+		E8E56F0A1E8C9C5E00C7728D /* ModelNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelNotification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,20 +68,29 @@
 		A8A3BD0A1E8BECAA00B603EE /* Synchronize-Model */ = {
 			isa = PBXGroup;
 			children = (
-				A8A3BD271E8BFC1200B603EE /* Constants.swift */,
+				E8E56F051E8C9BAB00C7728D /* Model Changeable */,
 				A8A3BD0B1E8BECAA00B603EE /* AppDelegate.swift */,
 				A8A3BD0D1E8BECAA00B603EE /* ViewController.swift */,
 				A8A3BD251E8BFA2700B603EE /* DetailViewController.swift */,
-				A8A3BD1F1E8BED7800B603EE /* SomeModel.swift */,
+				A8A3BD1F1E8BED7800B603EE /* Model.swift */,
 				A8A3BD0F1E8BECAA00B603EE /* Main.storyboard */,
 				A8A3BD211E8BF19A00B603EE /* TableViewCell.swift */,
 				A8A3BD221E8BF19A00B603EE /* TableViewCell.xib */,
 				A8A3BD121E8BECAA00B603EE /* Assets.xcassets */,
 				A8A3BD141E8BECAA00B603EE /* LaunchScreen.storyboard */,
 				A8A3BD171E8BECAA00B603EE /* Info.plist */,
-				E8E56F031E8C916E00C7728D /* NotificationUtil.swift */,
 			);
 			path = "Synchronize-Model";
+			sourceTree = "<group>";
+		};
+		E8E56F051E8C9BAB00C7728D /* Model Changeable */ = {
+			isa = PBXGroup;
+			children = (
+				E8E56F0A1E8C9C5E00C7728D /* ModelNotification.swift */,
+				E8E56F061E8C9BCA00C7728D /* ModelChangeable.swift */,
+				E8E56F081E8C9C4000C7728D /* ModelObserving.swift */,
+			);
+			name = "Model Changeable";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,13 +166,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8A3BD201E8BED7800B603EE /* SomeModel.swift in Sources */,
+				E8E56F0B1E8C9C5E00C7728D /* ModelNotification.swift in Sources */,
+				A8A3BD201E8BED7800B603EE /* Model.swift in Sources */,
 				A8A3BD231E8BF19A00B603EE /* TableViewCell.swift in Sources */,
 				A8A3BD261E8BFA2700B603EE /* DetailViewController.swift in Sources */,
+				E8E56F071E8C9BCA00C7728D /* ModelChangeable.swift in Sources */,
+				E8E56F091E8C9C4000C7728D /* ModelObserving.swift in Sources */,
 				A8A3BD0E1E8BECAA00B603EE /* ViewController.swift in Sources */,
 				A8A3BD0C1E8BECAA00B603EE /* AppDelegate.swift in Sources */,
-				A8A3BD281E8BFC1200B603EE /* Constants.swift in Sources */,
-				E8E56F041E8C916E00C7728D /* NotificationUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
