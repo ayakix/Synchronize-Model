@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         tableView.register(UINib(nibName: kCellIdentifier, bundle: nil), forCellReuseIdentifier: kCellIdentifier)
         
         var sampleModels = [SomeModel]()
-        for i in 0..<20 {
+        for i in 0..<3 {
             sampleModels.append(SomeModel(id: i, isFavorite: i % 2 == 0))
         }
         someModels = sampleModels
@@ -69,8 +69,6 @@ class ViewController: UIViewController {
             someModels = someModels.map({ $0.id == someModel.id ? someModel : $0 })
         case .delete:
             someModels = someModels.filter({ $0.id != someModel.id })
-        default:
-            break
         }
     }
     

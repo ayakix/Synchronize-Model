@@ -24,20 +24,10 @@ class DetailViewController: UIViewController {
     @IBAction private func onFavoriteButtonClick(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         someModel.isFavorite = sender.isSelected
-        notifyModelChange(eventType: .update)
+        NotificationUtil.notifyModelChange(someModel: someModel, eventType: .update)
     }
     
     @IBAction private func onDeleteButtonClick(_ sender: UIButton) {
-        notifyModelChange(eventType: .delete)
-    }
-}
-
-fileprivate extension DetailViewController {
-    func notifyModelChange(eventType: NotificationEventType) {
-        let userInfo: [String: Any] = [
-            NotificationInfoKey.model.rawValue: someModel,
-            NotificationInfoKey.eventType.rawValue: eventType
-        ]
-        NotificationCenter.default.post(name: .changedModel, object: nil, userInfo: userInfo)
+        NotificationUtil.notifyModelChange(someModel: someModel, eventType: .delete)
     }
 }

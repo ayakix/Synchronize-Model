@@ -26,6 +26,7 @@ class TableViewCell: UITableViewCell {
     }
     
     @IBAction private func onFavoriteButtonClick(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
+        someModel.isFavorite = !sender.isSelected
+        NotificationUtil.notifyModelChange(model: someModel, eventType: .update)
     }
 }

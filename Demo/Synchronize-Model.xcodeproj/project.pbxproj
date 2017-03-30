@@ -17,6 +17,7 @@
 		A8A3BD241E8BF19A00B603EE /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8A3BD221E8BF19A00B603EE /* TableViewCell.xib */; };
 		A8A3BD261E8BFA2700B603EE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A3BD251E8BFA2700B603EE /* DetailViewController.swift */; };
 		A8A3BD281E8BFC1200B603EE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A3BD271E8BFC1200B603EE /* Constants.swift */; };
+		E8E56F041E8C916E00C7728D /* NotificationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E56F031E8C916E00C7728D /* NotificationUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A8A3BD221E8BF19A00B603EE /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		A8A3BD251E8BFA2700B603EE /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A8A3BD271E8BFC1200B603EE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E8E56F031E8C916E00C7728D /* NotificationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				A8A3BD121E8BECAA00B603EE /* Assets.xcassets */,
 				A8A3BD141E8BECAA00B603EE /* LaunchScreen.storyboard */,
 				A8A3BD171E8BECAA00B603EE /* Info.plist */,
+				E8E56F031E8C916E00C7728D /* NotificationUtil.swift */,
 			);
 			path = "Synchronize-Model";
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				A8A3BD0E1E8BECAA00B603EE /* ViewController.swift in Sources */,
 				A8A3BD0C1E8BECAA00B603EE /* AppDelegate.swift in Sources */,
 				A8A3BD281E8BFC1200B603EE /* Constants.swift in Sources */,
+				E8E56F041E8C916E00C7728D /* NotificationUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +287,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Synchronize-Model/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ayakix.Synchronize-Model";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -295,6 +300,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Synchronize-Model/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ayakix.Synchronize-Model";
 				PRODUCT_NAME = "$(TARGET_NAME)";
