@@ -12,7 +12,13 @@ class DetailViewController: UIViewController {
     @IBOutlet fileprivate weak var titleLabel: UILabel!
     @IBOutlet fileprivate weak var favoriteButton: UIButton!
     
-    var model: Model!
+    var model: Model! {
+        didSet {
+            if favoriteButton?.isSelected != model.isFavorite {
+                favoriteButton?.isSelected = model.isFavorite
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +26,9 @@ class DetailViewController: UIViewController {
         titleLabel.text = "id: \(model.id)"
         favoriteButton.isSelected = model.isFavorite
     }
-
+    
     @IBAction private func onFavoriteButtonClick(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
-        model.isFavorite = sender.isSelected
+        model.isFavorite = !sender.isSelected
         ModelNotification.update(model: model)
     }
     
