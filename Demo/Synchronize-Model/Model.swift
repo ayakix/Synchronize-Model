@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Ayakix. All rights reserved.
 //
 
-struct SomeModel {
+struct Model {
     let id: Int
     var isFavorite: Bool
 }
